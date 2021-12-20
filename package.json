@@ -1,0 +1,48 @@
+{
+  "name": "deck-starter",
+  "description": "Create markdown decks without the tears 🏄‍♂️",
+  "version": "0.0.1",
+  "repository": "https://github.com/grikomsn/deck-starter.git",
+  "author": "Griko Nibras <git@griko.id>",
+  "scripts": {
+    "# general commands": "##################################################",
+    "build": "marp && shx cp ./deck/* ./public",
+    "lint": "prettier --write deck/**/*.md\"",
+    "postinstall": "husky install $PWD/.husky",
+    "start": "marp -s",
+    "validate": "yarn lint",
+    "#": "###################################################################"
+  },
+  "marp": {
+    "allowLocalFiles": true,
+    "bespoke": {
+      "progress": true
+    },
+    "html": true,
+    "inputDir": "./deck",
+    "output": "./public"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "latest",
+    "husky": "^7",
+    "lint-staged": "^12",
+    "prettier": "^2",
+    "shx": "^0"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write"
+    ],
+    "deck/**/*.md": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "endOfLine": "auto",
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all"
+  },
+  "private": true
+}
